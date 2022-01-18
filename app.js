@@ -5,10 +5,6 @@ require("dotenv").config();
 const app = express();
 
 async function sendMail(email, subject, text, name) {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-
-    // create reusable transporter object using the default SMTP transport
     let transporter = nodeMailer.createTransport({
         service: "gmail",
         auth: {

@@ -44,7 +44,7 @@ app.post("/api/v1/contact", async (req, res) => {
         res.status(200).json({ message: "email sent" });
     } catch (e) {
         console.log(e);
-        res.status(500).json({ message: "error sending email" });
+        res.status(500).json({ message: e.message });
     }
 });
 let port = process.env.PORT || 3000;

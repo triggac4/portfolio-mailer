@@ -6,7 +6,7 @@ const app = express();
 
 async function sendMail(email, subject, text, name) {
     let transporter = nodeMailer.createTransport({
-        service: "gmail",
+        service: "Gmail",
         auth: {
             user: "koffokansi@gmail.com",
             pass: process.env.pass,

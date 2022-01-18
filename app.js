@@ -43,6 +43,10 @@ app.post("/api/v1/contact", async (req, res) => {
         res.status(500).json({ message: e });
     }
 });
+
+app.use((req, res) => {
+    res.status(404).json({ message: "page not found" });
+});
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("listening on port " + port);

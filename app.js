@@ -8,19 +8,22 @@ async function sendMail(email, subject, text, name) {
     let transporter = nodeMailer.createTransport({
         service: "Gmail",
         auth: {
-            user: "koffokansi@gmail.com",
+            user: "kene.offoks@gmail.com",
             pass: process.env.pass,
         },
     });
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-        from: "koffokansi@gmail.com", // sender address
+        from: `Portfolio Contact-me`, // sender address
         to: "koffokansi@gmail.com", // list of receivers
         subject: subject, // Subject line
         text: `from: ${email} message:${text}`, // plain text body
-        html: `<p>name:${name}
-        </br>from: ${email} </br> message:${text}</p>`, // html body
+        html: `<div>
+        <p>name:${name}</p>
+        <p>from: ${email} </p> 
+        <p>message:${text}</p>
+        </div>`, // html body
     });
 
     console.log("Message sent: %s", info.messageId);
